@@ -5,14 +5,45 @@
         <title>Seconds- buy or sell used items</title>
         <link rel="stylesheet" type="text/css" href="{% static 'home/styles/base.css'%}">
         <link rel="shortcut icon" type="image/png" href="{% static 'home/images/favicon.ico' %}"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <script type="text/javascript"></script>
     </head>
     <body>
         <div class='top-header'>
             <div class='logo-box' >
-                <a href="">
+                <a href="{% url 'home:index' %}">
                     <img src="{% static 'home/images/Logo.png' %}" class="logo" alt="seconds"/>
                 </a>
+            </div>
+            <div class="two-row-header">
+                <div class="user-settings">
+                    <div class="menu-options">
+                        {% if user %}
+                            <div class="username">
+                                Hi <span>{{ user.name }}</span>
+                            </div>
+                            <div class="favorites">
+                               | FAVORITES |
+                            </div>
+                            <div class="logout">
+                                LOGOUT
+                            </div>
+                        {% else %}
+                            <div class="login-button">
+                                LOGIN/REGISTER&nbsp;
+                            </div>
+                            <div class="favorites">
+                                | FAVORITES |
+                            </div>
+                            <div class="logout">
+                                SETTINGS
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="boxes">
+                    {{ search_form }}
+                </div>
             </div>
         </div>
     </body>

@@ -10,4 +10,14 @@ class IndexView(View):
 
     @classmethod
     def get(cls, request):
-        return render(request, 'home/index.html', context={})
+        context = {'user': None}
+        return render(request, 'home/index.html', context=context)
+
+class RegisterView(View):
+    """docstring for RegisterView"""
+    def __init__(self):
+        super(RegisterView, self).__init__()
+    
+    def get(self, request):
+        return HttpResponse('Success')
+        
